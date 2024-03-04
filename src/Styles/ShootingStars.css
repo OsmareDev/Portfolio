@@ -1,0 +1,36 @@
+.skyStars {
+  overflow: hidden;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  z-index: -2;
+
+  span {
+      opacity: 0;
+      animation: shootingStar 3s linear infinite;
+  }
+
+  span::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 300px;
+      height: 1px;
+      background: linear-gradient(90deg, white, transparent);
+  }
+}
+
+@keyframes shootingStar {
+  0% {
+      transform: rotate(315deg) translateX(0);
+      opacity: 1;
+  }
+  70% {
+      opacity: 1;
+  }
+  100% {
+      transform: rotate(315deg) translateX(-1000px);
+      opacity: 0;
+  }
+}
