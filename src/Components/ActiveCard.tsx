@@ -52,7 +52,7 @@ export default function ActiveCard({
         </ div>
         {
           !loading && 
-        <a href={card.projects[project]?.projectUrl} className="TVborder" style={{opacity: "1", backgroundImage:"none"}}>
+        <a href={card.projects[project]?.projectUrl} target="_blank" className="TVborder" style={{opacity: "1", backgroundImage:"none"}}>
           <div style={{backgroundImage: "url("+card.projects[project]?.imageUrl+")"}} className="TVscreen" />
           <div className="TVchannel">Ch {project + 1}/{card.projects.length}</div>
           <div className="TVTitle">{card.name}</div>

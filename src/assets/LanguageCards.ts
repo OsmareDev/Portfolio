@@ -74,7 +74,7 @@ export const LanguageCards : CardObject[] = [
         title: 'Compute Shader'
       },
       {
-        imageUrl: 'https://github.com/OsmareDev/3DBaseGraphicsStudy',
+        imageUrl: 'https://github.com/OsmareDev/VoidEngine/assets/50903643/0e257aec-5aa4-47f3-8e1e-46b78508619d',
         projectUrl: 'https://github.com/OsmareDev/3DBaseGraphicsStudy',
         title: 'Void Engine'
       }
