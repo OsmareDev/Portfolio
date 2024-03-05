@@ -1,7 +1,6 @@
 import { CardObject } from "../Types/types"
 import "../Styles/ActiveCard.css"
 import "../Styles/Television.css"
-import { useEffect, useState } from "react";
 import { arrotRight } from "../assets/svg/Shapes/ArrowRightSVG";
 import { arrotLeft } from "../assets/svg/Shapes/ArrowLeftSVG";
 import { clickSVG } from "../assets/svg/Shapes/ClickSVG";
@@ -9,38 +8,20 @@ import { clickSVG } from "../assets/svg/Shapes/ClickSVG";
 interface PropTypes {
   card: CardObject;
   loading?: boolean;
+  project: number;
   wait: (seconds : number) => void;
   handleChange: () => void;
+  handleChangeProject: (right : boolean) => void;
 }
 
 export default function ActiveCard({
   card,
   loading = false,
-  wait,
-  handleChange
+  project,
+  handleChange,
+  handleChangeProject
 } : PropTypes) {
-  const [project, setProject] = useState(0)
-
-  useEffect(() => {
-    setProject(0)
-  }, [card])
-
-  const handleChangeProject = (direction : boolean) => {
-    wait(15)
-    if (direction) {
-      setProject(value => { 
-        const newValue = value + 1
-        if (newValue >= card.projects.length) return 0
-        else return newValue
-      })
-    } else {
-      setProject(value => { 
-        const newValue = value - 1
-        if (newValue < 0) return card.projects.length - 1
-        else return newValue
-      })
-    }
-  }
+  
 
   return <>
 

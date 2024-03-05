@@ -88,7 +88,7 @@ export const TecnologyCards : CardObject[] = [
       {
         imageUrl: 'https://github.com/OsmareDev/trajectoryGenerator_BlenderAddOn/assets/50903643/1dc65556-f4ae-4ff3-8888-644454c279bf',
         projectUrl: 'https://github.com/OsmareDev/trajectoryGenerator_BlenderAddOn/blob/main/README.md?plain=1',
-        title: 'Trajectory Generator Blender AddOn'
+        title: 'Trajectory Blender Tool'
       }
     ]
   },

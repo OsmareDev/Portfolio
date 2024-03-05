@@ -1,6 +1,11 @@
 @font-face {
   font-family: 'Pixelated';
-  src: url('/PixelifySans.ttf') format('woff2')
+  src: url('/LcdSolid.ttf') format('woff2')
+}
+
+@font-face {
+  font-family: 'Clock';
+  src: url('/Clock.ttf') format('woff2')
 }
 
 @font-face {
@@ -182,8 +187,8 @@
   border-radius: 3px;
   left: 5%;
   color: #29641c;
-  font-size: 15px;
-  font-family: 'Pixelated';
+  font-size: 8px;
+  font-family: 'Clock';
   display: flex;
   align-items: center;
   justify-content: center;
@@ -294,9 +299,9 @@
 
 
 @keyframes floatAnimation {
-  0% { transform: translate(-50%, -65%) translateY(0); }
-  50% { transform: translate(-50%, -65%) translateY(-10px); }
-  100% { transform: translate(-50%, -65%) translateY(0); }
+  0% { transform: translate(-50%, -50%) translateY(0); }
+  50% { transform: translate(-50%, -50%) translateY(-10px); }
+  100% { transform: translate(-50%, -50%) translateY(0); }
 }
 
 @keyframes scanLinner {

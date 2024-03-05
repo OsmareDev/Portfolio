@@ -18,6 +18,7 @@ interface PropTypes {
   displacement: number;
   timeOfDisplacement: number;
   initialYPos: number;
+  seeMe: boolean;
 }
 
 const MAX_ROTATION_SPEED = -Math.PI * 1.5
@@ -42,6 +43,7 @@ export default function Rig({
   displacement,
   timeOfDisplacement,
   initialYPos,
+  seeMe,
   ...rest
 } : PropTypes) {
   const ref = createRef<Group>()
@@ -200,6 +202,6 @@ export default function Rig({
   })
 
   return <>
-    <group ref={ref} onClick={onCardClick} {...rest}/>
+    {!seeMe && <group ref={ref} onClick={onCardClick} {...rest}/>}
   </>
 }

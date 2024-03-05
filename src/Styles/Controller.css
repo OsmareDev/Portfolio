@@ -1,0 +1,157 @@
+@font-face {
+  font-family: 'Aerodynamic';
+  src: url('/Aerodynamic.otf') format('woff2')
+}
+
+.controllerWrapper {
+  background-color: black;
+  box-shadow: inset 0px 37px 72px -27px rgba(199,199,199,1);
+    box-shadow: inset 0px 37px 72px -42px rgba(199,199,199,1);
+  width: 12vw;
+  height: 55vh;
+  position: absolute;
+  right: 9.5%;
+  bottom: 1%;
+  border-radius: 10px;
+  perspective: 1000px;
+  perspective-origin: 50% 50%;
+  transform: rotateX(45deg) rotateZ(-45deg);
+  z-index: 10;
+  animation: lightAnimation 0.5s infinite linear;
+
+  /* font-family: 'Aerodynamic'; */
+}
+
+.controllerWrapper::before {
+  content: '';
+  position: absolute;
+  background-color: black;
+  width: 2vw;
+  height: 100%;
+  left: -1.8vw;
+  top:0px;
+  transform-origin: right;
+  border-radius: 5px;
+  box-shadow: inset 0px 37px 72px -47px rgba(199,199,199,1);
+  transform: skewY(-45deg);
+  animation: lightAnimation 0.5s infinite linear;
+  animation-delay: 0.5s;
+}
+
+.controllerWrapper::after {
+  content: '';
+  position: absolute;
+  background-color: black;
+  width: 100%;
+  height: 2vw;
+  left: 0;
+  bottom: -1.8vw;
+  transform-origin: top;
+  border-radius: 5px;
+  box-shadow: inset 0px 0px 72px -49px rgba(199,199,199,1);
+  transform: skewX(-45deg)
+}
+
+.controllerButton1 {
+  background: black;
+  box-shadow: inset 0px 0px 72px -49px rgba(199,199,199,1);
+  position: absolute;
+  border: none;
+  width: 80%;
+  height: 10%;
+  top: 20px;
+  perspective: 1000px;
+  perspective-origin: 50% 50%;
+  color: whitesmoke;
+  font-size: 20px;
+  transition: all 0.3s ease;
+  font-family: 'Aerodynamic';
+}
+
+.bigButton {
+  left: 50%;
+  transform: translateX(-50%) rotate3d(1, 1, 1, 45deg) translateZ(5px) rotate3d(1, 1, 1, -45deg);
+}
+
+.sideButton {
+  transform: rotate3d(1, 1, 1, 45deg) translateZ(5px) rotate3d(1, 1, 1, -45deg);
+}
+
+.controllerButton1::before {
+  content: '';
+  background: black;
+  box-shadow: inset 0px 0px 72px -49px rgba(199,199,199,1);
+  position: absolute;
+  width: 5px;
+  height: 100%;
+  left: -5px;
+  top:0px;
+
+  transform-origin: right;
+  transform: skewY(-45deg);
+  transition: all 0.3s ease;
+}
+
+.controllerButton1::after {
+  content: '';
+  background: black;
+  box-shadow: inset 0px 0px 72px -49px rgba(199,199,199,1);
+  position: absolute;
+  width: 100%;
+  height: 5px;
+  left: 0;
+  bottom: -5px;
+
+  transform-origin: top;
+  transform: skewX(-45deg);
+  transition: all 0.3s ease;
+}
+
+.sideButton:active {
+  transform: rotate3d(1, 1, 1, 45deg) translateZ(-5px) rotate3d(1, 1, 1, -45deg);
+}
+.bigButton:active {
+  transform: translateX(-50%) rotate3d(1, 1, 1, 45deg) translateZ(-5px) rotate3d(1, 1, 1, -45deg);
+}
+.controllerButton1:active::after {
+  height: 0px;
+  bottom: 0px;
+}
+.controllerButton1:active::before {
+  width: 0px;
+  left: 0px;
+}
+
+.controllerScreen {
+  width: 80%;
+  height: 30%;
+  position: absolute;
+  bottom: 5%;
+  background: black;
+  left: 50%;
+  transform: translate(-50%);
+  color: green;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  p {
+    width: 90%;
+    height: 90%;
+    font-size: 16px;
+    text-align: justify;
+    font-weight: bold;
+  }
+}
+
+@keyframes lightAnimation {
+  0% { 
+    box-shadow: inset 0px 37px 72px -42px rgba(199,199,199,1);
+  }
+  50% { 
+    box-shadow: inset 0px 47px 72px -42px rgba(199,199,199,1);
+  }
+  100% { 
+    box-shadow: inset 0px 37px 72px -42px rgba(199,199,199,1);
+  }
+}

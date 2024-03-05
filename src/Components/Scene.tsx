@@ -5,45 +5,40 @@ import Carousel from './Carousel'
 import { TecnologyCards } from '../assets/TecnologyCards'
 import { Euler, Vector3 } from 'three'
 import ActiveCard from './ActiveCard'
-import { useState, useRef } from 'react'
+import { useState } from 'react'
 import { LanguageCards } from '../assets/LanguageCards'
+import Controller from './Controller'
+import useProject from '../Hooks/useProject'
+import useGroup from '../Hooks/useGroup'
+import useCurrentCard from '../Hooks/useCurrentCard'
+import useTimer from '../Hooks/useTimer'
+import { PersonalCard } from '../assets/PersonalCard'
 
 const WAIT_TIME = 3
 
 export default function Scene() {
-  const [currentCard, setCurrentCard] = useState(TecnologyCards[0])
+  
   const [loading, setLoading] = useState(false)
-
-  const [group, setGroup] = useState(false)
-  const cards = (group)
-    ? LanguageCards
-    : TecnologyCards
-
-  const timer = useRef(0)
-  const waitTimeValue = useRef(WAIT_TIME)
-
-  const wait = (seconds = WAIT_TIME) => {
-    waitTimeValue.current = seconds
-    timer.current = 0
-  }
-
-  const handleChangeCard = (cardNumber : number) => {
-    console.log(cardNumber)
-    console.log(cards)
-
-    setLoading(false)
-    setCurrentCard(cards[cardNumber])
-  }
-
-  const handleChangeRigs = () => {
-    setLoading(true)
-    setGroup(value => !value)
-  }
-
   const handleLoading = () => {
     setLoading(true)
   }
 
+  const {timer, timer_wait, waitTimeValue} = useTimer(0, WAIT_TIME)
+  const {group, cards, handleChangeRigs} = useGroup(false, setLoading)
+  const {currentCard, handleChangeCard, setCurrentCard, setLastCard} = useCurrentCard(cards[0], cards, setLoading)
+  const {project, handleChangeProject} = useProject(0, timer_wait, currentCard)
+
+  const [seeMe, setSeeMe] = useState(false)
+  const handleSeeMe = () => {
+    console.log("entra")
+
+    timer_wait( (!seeMe) ? 1000 : 3 )
+    setLoading(false);
+    (!seeMe) ? setCurrentCard(PersonalCard) : setLastCard()
+    setSeeMe(value => !value)
+  }
+  
+  
   return <>
     <Canvas style={{height: "100vh"}}>
       <Rig 
@@ -51,16 +46,17 @@ export default function Scene() {
         timer={timer} 
         handleChangeCard={handleChangeCard} 
         handleLoading={handleLoading} 
-        position={new Vector3(0, -2.4, -10)} 
+        position={new Vector3(0, 2.5, -10)} 
         rotation={new Euler(0, 0, 0.03)} 
         numberOfCards={TecnologyCards.length} 
         transitionTime={0.5} 
         waitTime={3}
-        activePosition={-2.4}
         group={group}
-        displacement={25}
+        displacement={22}
         timeOfDisplacement={1}
-        initialYPos={-2.4}>
+        activePosition={2.5}
+        initialYPos={2.5}
+        seeMe={seeMe}>
         <Carousel cards={TecnologyCards} radius={10}/>
       </Rig>
 
@@ -74,19 +70,27 @@ export default function Scene() {
         numberOfCards={LanguageCards.length} 
         transitionTime={0.5} 
         waitTime={3}
-        activePosition={-2.4}
+        activePosition={2.4}
         group={group}
-        displacement={18}
+        displacement={22.8}
         timeOfDisplacement={1}
-        initialYPos={-20.4}>
+        initialYPos={-20.4}
+        seeMe={seeMe}>
         <Carousel cards={LanguageCards} radius={10}/>
       </Rig>
     </Canvas>
 
     <ActiveCard 
       handleChange={handleChangeRigs} 
-      wait={wait} 
+      wait={timer_wait} 
       card={currentCard} 
-      loading={loading}/>
+      loading={loading}
+      handleChangeProject={(seeMe) ? () => {} : handleChangeProject}
+      project={project}/>
+
+    <Controller 
+      handleChangeAboutMe={handleSeeMe}
+      handleChangeProject={handleChangeProject}
+      handleChangeRigs={(seeMe) ? () => {} : handleChangeRigs} />
   </>
 }
