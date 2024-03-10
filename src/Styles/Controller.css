@@ -29,12 +29,12 @@
   content: '';
   position: absolute;
   display: block;
-  bottom: -20px;
+  bottom: -2vw;
   width: 0; 
   height: 0; 
-  border-left: 20px solid transparent;
-  border-right: 20px solid transparent;
-  border-top: 20px solid rgba(10, 182, 99, 0.415);
+  border-left: 2vw solid transparent;
+  border-right: 2vw solid transparent;
+  border-top: 2vw solid rgba(10, 182, 99, 0.415);
 
   left: 50%;
   transform: translateX(-50%);
