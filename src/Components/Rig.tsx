@@ -199,7 +199,7 @@ export default function Rig({
     // check if the new target isnt the current
     if (newTarget.current != currentRotation.current) {
       // in that case we will check if its close enough
-      if (currentRotation.current < newTarget.current + 0.03 && currentRotation.current > newTarget.current - 0.03)  {
+      if (currentRotation.current < newTarget.current + rotationSpeed * delta && currentRotation.current > newTarget.current - rotationSpeed * delta)  {
         // if thats the case we will position the rotation right where the target is
         currentRotation.current = newTarget.current
         // we will reset the sign

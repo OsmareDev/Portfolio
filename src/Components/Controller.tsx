@@ -40,7 +40,7 @@ export default function Controller({
       setSeeMessage( !handleChangeProject(direction) )
 
       window.clearTimeout(messagetimeout)
-      messagetimeout = window.setTimeout(() => setSeeMessage(false), 2500)
+      messagetimeout = window.setTimeout(() => setSeeMessage(false), 6500)
     }
   }
 
