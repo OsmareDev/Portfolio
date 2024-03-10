@@ -1,12 +1,14 @@
 import "../Styles/Background.css"
 import ShootingStars from "./ShootingStars"
+import Stars from "./Stars"
 
 export default function Background() {
   return <>
     <div className="sky">
       
     </div>
-    <ShootingStars  numberOfStars={20}/>
+    <Stars numStars={50} />
+    <ShootingStars  numberOfStars={10}/>
     <div className="fog">
 
     </div>

@@ -3,6 +3,7 @@
   height: 100vh;
   background: linear-gradient(138deg, rgba(0,132,130,1) 0%, rgba(39,28,65,1) 47%, rgba(0,2,97,1) 100%);
   background-image: url("/nightSky.jpg");
+  background: radial-gradient(at center 150%, #3e6db3 0%, #0d1b3b 50%, #08082a 70%, #000000 100%);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -15,7 +16,7 @@
   width: 100vw;
   height: 100vh;
   background-color: rgba(255,255,255,0.001);
-  backdrop-filter: blur(2px);
+  backdrop-filter: blur(5px);
   box-shadow: 0 0 20px rgba(255, 255, 255, 0.001);
   z-index: -1;
   position: absolute;
