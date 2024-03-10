@@ -308,8 +308,7 @@
   .Allwrapper {
     width: 80vw;
     height: 55vw;
-    top: initial;
-    bottom: 10vh;
+    top: 28%;
   }
 
   .TVwrapper {

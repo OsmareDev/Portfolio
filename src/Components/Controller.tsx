@@ -25,6 +25,10 @@ export default function Controller({
   const [tip, setTip] = useState(0)
 
   return <>
+    <div className='movileControllerWrapper'>
+      <button onClick={handleChangeAboutMe} className='controllerButton1 bigButton' style={{top: "10%"}}> AboutMe </button>
+    </div>
+
     <div className="controllerWrapper">
       <button onClick={handleChangeAboutMe} className='controllerButton1 bigButton' style={{top: "10%"}}> AboutMe </button>
       <button onClick={() => handleChangeProject(false)} className='controllerButton1 sideButton' style={{top: "25%", height: "20%", width: "15%", left: "10%"}}> 

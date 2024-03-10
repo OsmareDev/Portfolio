@@ -3,6 +3,10 @@
   src: url('/Aerodynamic.otf') format('woff2')
 }
 
+.movileControllerWrapper {
+  display: none;
+}
+
 .controllerWrapper {
   background-color: black;
   box-shadow: inset 0px 37px 72px -27px rgba(199,199,199,1);
@@ -160,15 +164,64 @@
   .controllerWrapper {
     height: 40vw;
     width: 18vw;
+    left: 50%;
+    transform: translateX(-50%) rotateX(-30deg);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
   }
 
   .controllerWrapper::before {
-    left: -3.5vw;
-    width: 3.5vw;
+    display: none;
+  }
+
+  .bigButton {
+    transform: rotateX(30deg) translateX(-50%) translateZ(5px);
+  }
+
+  .sideButton {
+    transform: rotateX(30deg) translateZ(5px);
+  }
+
+  .controllerButton1::after {
+    transform: none;
+  }
+
+  .controllerButton1::before {
+    display: none;
   }
 
   .controllerWrapper::after {
     bottom: -3.5vw;
     height: 3.5vw;
+    transform: rotateX(-30deg) rotateX(90deg);
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+
+  .sideButton:active {
+    transform: rotateX(30deg) translateZ(-5px);
+  }
+  .bigButton:active {
+    transform: rotateX(30deg) translateX(-50%) translateZ(-5px);
+  }
+  .controllerButton1:active::after {
+    height: 0px;
+    bottom: 0px;
+  }
+
+  .controllerScreen p {
+    font-size: 9px;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .controllerWrapper {
+    height: 35vh;
+    width: 15vh;
+    transform: translateX(-50%) rotateX(-30deg);
   }
 }
