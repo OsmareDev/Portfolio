@@ -13,9 +13,16 @@ const tips = [
 
 interface PropTypes {
   handleChangeRigs: () => void;
-  handleChangeProject: (value : boolean) => void;
+  handleChangeProject: (value : boolean) => boolean;
   handleChangeAboutMe: () => void;
 }
+
+let messagePos = {
+  x : 0,
+  y : 0
+}
+
+let messagetimeout = window.setTimeout(() => {}, 0)
 
 export default function Controller({
   handleChangeRigs,
@@ -23,21 +30,40 @@ export default function Controller({
   handleChangeAboutMe
 } : PropTypes) {
   const [tip, setTip] = useState(0)
+  const [seeMessage, setSeeMessage] = useState(false)
+
+  function handleClickButton(direction : boolean) {
+    return (event : React.MouseEvent<HTMLElement>) => {
+      messagePos = { 
+        x: (event.clientX - (7.5 * window.innerWidth / 100)), 
+        y: (event.clientY - (8 * window.innerWidth / 100) - 20) }
+      setSeeMessage( !handleChangeProject(direction) )
+
+      window.clearTimeout(messagetimeout)
+      messagetimeout = window.setTimeout(() => setSeeMessage(false), 2500)
+    }
+  }
 
   return <>
-    <div className='movileControllerWrapper'>
-      <button onClick={handleChangeAboutMe} className='controllerButton1 bigButton' style={{top: "10%"}}> AboutMe </button>
+    <div 
+      style={{
+        left: messagePos.x,
+        top: messagePos.y,
+        opacity: (seeMessage) ? 1 : 0
+      }}
+      className='controllerHint'>
+      <p>The buttons to change the channel only work if the technology has more than one channel</p>
     </div>
 
     <div className="controllerWrapper">
       <button onClick={handleChangeAboutMe} className='controllerButton1 bigButton' style={{top: "10%"}}> AboutMe </button>
-      <button onClick={() => handleChangeProject(false)} className='controllerButton1 sideButton' style={{top: "25%", height: "20%", width: "15%", left: "10%"}}> 
+      <button onClick={handleClickButton(false)} className='controllerButton1 sideButton' style={{top: "25%", height: "20%", width: "15%", left: "10%"}}> 
         { arrotLeft }
       </button>
       <button onClick={handleChangeRigs} className='controllerButton1 bigButton' style={{top: "25%", height: "20%", width: "40%"}}> 
         { changeSVG }
       </button>
-      <button onClick={() => handleChangeProject(true)} className='controllerButton1 sideButton' style={{top: "25%", height: "20%", width: "15%", right: "10%"}}> 
+      <button onClick={handleClickButton(true)} className='controllerButton1 sideButton' style={{top: "25%", height: "20%", width: "15%", right: "10%"}}> 
         { arrotRight }
       </button>
 

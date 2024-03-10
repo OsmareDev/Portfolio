@@ -84,7 +84,7 @@ export default function Scene() {
       wait={timer_wait} 
       card={currentCard} 
       loading={loading}
-      handleChangeProject={(seeMe) ? () => {} : handleChangeProject}
+      handleChangeProject={handleChangeProject}
       project={project}/>
 
     <Controller 

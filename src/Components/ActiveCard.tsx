@@ -11,7 +11,7 @@ interface PropTypes {
   project: number;
   wait: (seconds : number) => void;
   handleChange: () => void;
-  handleChangeProject: (right : boolean) => void;
+  handleChangeProject: (right : boolean) => boolean;
 }
 
 export default function ActiveCard({

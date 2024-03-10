@@ -12,9 +12,7 @@ export default function useProject(initialValue = 0, waitFunction : (time : numb
     waitFunction(15)
     if (direction) {
       setProject(value => { 
-        const newValue = value + 1
-        if (newValue >= card.projects.length) return 0
-        else return newValue
+        return ( value + 1 ) % card.projects.length
       })
     } else {
       setProject(value => { 
@@ -23,6 +21,8 @@ export default function useProject(initialValue = 0, waitFunction : (time : numb
         else return newValue
       })
     }
+
+    return (card.projects.length === 1) ? false : true
   }
 
   // Retornar el estado del contador y las funciones para manipularlo
