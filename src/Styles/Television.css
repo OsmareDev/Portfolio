@@ -16,7 +16,7 @@
 .Allwrapper {
   position: absolute;
   width: 35vw;
-  height: 50vh;
+  height: 25vw;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -65%);
@@ -35,15 +35,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 10px;
-  box-shadow: 0px -9px 8px 2px rgba(0,0,0,1);
+  border-radius: 0.7vw;
+  box-shadow: 0px -0.5vw 0.5vw 0.1vw rgb(0, 0, 0)
 }
 
 .TVborder {
   width: 90%;
   height: 90%;
   background-image: url("/static.gif");
-  border-radius: 30px;
+  border-radius: 2.5vw;
   opacity: 0.5;
   position: absolute;
   overflow: hidden;
@@ -53,7 +53,7 @@
   width: 92%;
   height: 92%;
   background: whitesmoke;
-  border-radius: 30px;
+  border-radius: 2.5vw;
   opacity: 0.1;
   position: absolute;
 }
@@ -86,14 +86,14 @@
   top: 5%;
   right: 5%;
 
-  width: 100px;
-  height: 30px;
+  width: 10vw;
+  height: 2vw;
 
   text-align: end;
 
   color: #6cd354;
   font-family: 'Pixelated';
-  font-size: 25px;
+  font-size: 2vw;
   text-shadow: black 0px 0px 3px;
   pointer-events: none;
 }
@@ -104,12 +104,12 @@
   left: 5%;
 
   width: 90px;
-  height: 30px;
+  height: 2vw;
 
 
   color: #6cd354;
   font-family: 'Pixelated';
-  font-size: 25px;
+  font-size: 2vw;
   text-shadow: black 0px 0px 3px;
   pointer-events: none;
 }
@@ -120,39 +120,35 @@
   left: 5%;
 
   width: auto;
-  height: 30px;
-
+  height: 2vw;
 
   color: #6cd354;
   font-family: 'Pixelated';
-  font-size: 25px;
+  font-size: 2vw;
   text-shadow: black 0px 0px 3px;
   pointer-events: none;
 }
 
 .VHSWrapper {
   position: absolute;
-  bottom: -10vh;
+  bottom: -5vw;
   width: 35vw;
-  height: 10vh;
+  height: 5vw;
   background: black;
   background: radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(61,61,61,1) 0%, rgba(0,0,0,1) 100%);
-  border-radius: 10px;
-  /* box-shadow: 0px -7px 4px -2px rgba(0,0,0,0.73); */
+  border-radius: 0.7vw;
   display: flex;
   align-items: center;
   justify-content: center;
-  /* box-shadow: inset 0px 4px 24px -2px rgba(255,255,255,0.2); */
 }
 
 .VHSdecoration {
   width: 98%;
   height: 90%;
   background-color: rgb(0,0,0);
-  border-radius: 10px;
-  /* border: 2px solid #aaa; */
+  border-radius: 0.7vw;
   opacity: 0.8;
-  box-shadow: inset 0px 4px 24px -2px rgba(255,255,255,0.2);
+  box-shadow: inset 0px 0.5vw 1.5vw -0.1vw rgba(255,255,255,0.2);
 }
 
 .VHSreproductor {
@@ -164,17 +160,17 @@
   width: 30%;
   height: 40%;
   position: absolute;
-  border-radius: 5px;
+  border-radius: 0.35vw;
   opacity: 0.5;
-  box-shadow: inset 0px 4px 24px -2px rgba(255,255,255,0.3);
+  box-shadow: inset 0px 0.5vw 1.5vw -0.1vw rgba(255,255,255,0.3);
   color: whitesmoke;
   display: flex;
   align-items: center;
   justify-content: center;
-  letter-spacing: 1.5px;
+  letter-spacing: 0.15vw;
   pointer-events: none;
   color: rgba(255,255,255,0.5);
-  font-size: 15px;
+  font-size: 1vw;
   font-family: 'Motor';
   font-weight: bold;
 }
@@ -184,17 +180,16 @@
   width: 25%;
   height: 38%;
   position: absolute;
-  border-radius: 3px;
   left: 5%;
   color: #29641c;
-  font-size: 8px;
+  font-size: 0.5vw;
   font-family: 'Clock';
   display: flex;
   align-items: center;
   justify-content: center;
   letter-spacing: 2px;
   font-weight: bold;
-  border-radius: 7px;
+  border-radius: 0.35vw;
   overflow: hidden;
 
 }
@@ -307,4 +302,49 @@
 @keyframes scanLinner {
   0% { background-position-y: 0px; }
   100% { background-position-y: 15px; }
+}
+
+@media only screen and (max-width: 700px) {
+  .Allwrapper {
+    width: 80vw;
+    height: 55vw;
+    top: initial;
+    bottom: 10vh;
+  }
+
+  .TVwrapper {
+    border-radius: 2.7vw;
+  }
+
+  .VHSWrapper {
+    width: 80vw;
+    bottom: -10vw;
+    height: 10vw;
+  }
+
+  .TVchannel, 
+  .TVShow,
+  .TVTitle {
+    font-size: 3vw;
+    width: 100%;
+  }
+
+  .VHSText {
+    font-size: 1vw;
+  }
+
+  .VHSreproductor {
+    font-size: 2.4vw;
+  }
+
+  .VHSButton {
+    width: 5vw;
+    height: 5vw;
+  }
+
+  @keyframes floatAnimation {
+    0% { transform: translate(-50%, 0%) translateY(0); }
+    50% { transform: translate(-50%, 0%) translateY(-10px); }
+    100% { transform: translate(-50%, 0%) translateY(0); }
+  }
 }

@@ -8,7 +8,7 @@
   box-shadow: inset 0px 37px 72px -27px rgba(199,199,199,1);
     box-shadow: inset 0px 37px 72px -42px rgba(199,199,199,1);
   width: 12vw;
-  height: 55vh;
+  height: 27vw;
   position: absolute;
   right: 9.5%;
   bottom: 1%;
@@ -63,7 +63,7 @@
   perspective: 1000px;
   perspective-origin: 50% 50%;
   color: whitesmoke;
-  font-size: 20px;
+  font-size: 2vw;
   transition: all 0.3s ease;
   font-family: 'Aerodynamic';
 }
@@ -138,7 +138,7 @@
   p {
     width: 90%;
     height: 90%;
-    font-size: 16px;
+    font-size: 1vw;
     text-align: justify;
     font-weight: bold;
   }
@@ -146,12 +146,29 @@
 
 @keyframes lightAnimation {
   0% { 
-    box-shadow: inset 0px 37px 72px -42px rgba(199,199,199,1);
+    box-shadow: inset 0px 2vw 5vw -2.5vw rgba(199,199,199,1);
   }
   50% { 
-    box-shadow: inset 0px 47px 72px -42px rgba(199,199,199,1);
+    box-shadow: inset 0px 3vw 5vw -2.5vw rgba(199,199,199,1);
   }
   100% { 
-    box-shadow: inset 0px 37px 72px -42px rgba(199,199,199,1);
+    box-shadow: inset 0px 2vw 5vw -2.5vw rgba(199,199,199,1);
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .controllerWrapper {
+    height: 40vw;
+    width: 18vw;
+  }
+
+  .controllerWrapper::before {
+    left: -3.5vw;
+    width: 3.5vw;
+  }
+
+  .controllerWrapper::after {
+    bottom: -3.5vw;
+    height: 3.5vw;
   }
 }
