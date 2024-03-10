@@ -12,7 +12,9 @@ export default function Stars({
   for (let i = 0; i < numStars; ++i) {
     const size = `${5 * Math.random()}px`
     stars.push(
-      <span style={{ 
+      <span 
+      key={i}
+      style={{ 
         left: window.innerWidth * Math.random(), 
         top: window.innerHeight * Math.random(),
         width: size,

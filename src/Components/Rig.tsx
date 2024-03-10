@@ -30,6 +30,8 @@ function CheckRotationInRange(rotation : number) {
   return rotation
 }
 
+let startPos = 0
+
 export default function Rig({
   waitTime = 2,
   transitionTime = 0.3,
@@ -78,10 +80,28 @@ export default function Rig({
       newTarget.current = Math.round(currentRotation.current / distanceBetweenObjects) * distanceBetweenObjects + (sign.current * distanceBetweenObjects)
     };
 
+    const handleDragStart = (event : TouchEvent) => {
+      event.preventDefault
+      startPos = event.touches[0].pageX
+    }
+
+    const handleDrag = (event : TouchEvent) => {
+      event.preventDefault
+      const movement = (event.touches[0].pageX - startPos) * 0.00001
+      currentRotation.current -= movement
+      sign.current = Math.sign(event.touches[0].pageX - startPos)
+      handleLoading()
+      newTarget.current = Math.round(currentRotation.current / distanceBetweenObjects) * distanceBetweenObjects + (sign.current * distanceBetweenObjects)
+    }
+
     window.addEventListener('wheel', handleScroll);
+    window.addEventListener('touchstart', handleDragStart)
+    window.addEventListener('touchmove', handleDrag)
 
     return () => {
       window.removeEventListener('wheel', handleScroll);
+      window.removeEventListener('touchstart', handleDragStart)
+      window.removeEventListener('touchmove', handleDrag)
     };
   }, [distanceBetweenObjects, handleLoading]);
 

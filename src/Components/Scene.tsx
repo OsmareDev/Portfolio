@@ -30,7 +30,6 @@ export default function Scene() {
 
   const [seeMe, setSeeMe] = useState(false)
   const handleSeeMe = () => {
-    console.log("entra")
 
     timer_wait( (!seeMe) ? 1000 : 3 )
     setLoading(false);
